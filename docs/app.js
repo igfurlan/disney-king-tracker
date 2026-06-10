@@ -1,8 +1,8 @@
 /* Movies & Books Tracker — static, localStorage-backed. */
 const STORE_KEY = "dk-tracker-progress-v1";
 const TAB_LABELS = {
-  movies: { title: "Films watched", noun: "films" },
-  books:  { title: "Books read",    noun: "books" },
+  movies: { title: "Filmes assistidos", noun: "filmes" },
+  books:  { title: "Livros lidos",      noun: "livros" },
 };
 const COLORS = ["#ffb020", "#ff5e6c", "#7c5cff", "#34d399", "#6c8cff", "#c061ff"];
 const RING_C = 327; // 2πr, r=52
@@ -35,7 +35,7 @@ function applyView(list) {
     const st = stateOf(it.id);
     if (ui.filter === "done" && !st.done) return false;
     if (ui.filter === "todo" && st.done) return false;
-    if (ui.q && !it.title.toLowerCase().includes(ui.q)) return false;
+    if (ui.q && !(it.title.toLowerCase().includes(ui.q) || (it.title_en || "").toLowerCase().includes(ui.q))) return false;
     return true;
   });
   const cmp = {
@@ -50,19 +50,22 @@ function applyView(list) {
 function cardHTML(it) {
   const st = stateOf(it.id);
   const cover = it.cover
-    ? `<img data-src="${it.cover}" alt="${escapeAttr(it.title)} cover" loading="lazy" />` : "";
+    ? `<img data-src="${it.cover}" alt="Capa de ${escapeAttr(it.title)}" loading="lazy" />` : "";
+  const orig = (it.title_en && it.title_en !== it.title) ? `${escapeHTML(it.title_en)} · ` : "";
   return `
   <article class="card ${st.done ? "done" : ""}" data-id="${it.id}">
     <div class="poster">
       <span class="year-badge">${it.year}</span>
-      <button class="check" title="Mark as ${st.done ? "not done" : "done"}" aria-label="toggle done">✓</button>
+      <button class="check" title="${st.done ? "Desmarcar" : "Marcar como concluído"}" aria-label="marcar como concluído">✓</button>
       ${cover}
     </div>
     <div class="card-body">
       <h3 class="card-title" title="${escapeAttr(it.title)}">${escapeHTML(it.title)}</h3>
+      <p class="card-sub">${orig}<span class="yr">${it.year}</span></p>
       <span class="chip">${escapeHTML(it.group)}</span>
       <div class="date-row ${st.done ? "" : "hidden"}">
-        <input type="date" value="${st.date || ""}" max="2100-12-31" aria-label="date finished" />
+        <label class="date-label">Concluído em</label>
+        <input type="date" value="${st.date || ""}" max="2100-12-31" aria-label="data de conclusão" />
       </div>
     </div>
   </article>`;
@@ -87,14 +90,14 @@ function render() {
 }
 
 function updateFooter() {
-  $("#footer-count").textContent = `${items().length} ${TAB_LABELS[ui.tab].noun} · ${countDone(items())} done`;
+  $("#footer-count").textContent = `${items().length} ${TAB_LABELS[ui.tab].noun} · ${countDone(items())} concluídos`;
 }
 
 function renderProgress() {
   const list = items();
   const total = list.length, done = countDone(list), pct = pctOf(list);
   $("#progress-title").textContent = TAB_LABELS[ui.tab].title;
-  $("#progress-sub").textContent = `${done} of ${total} ${TAB_LABELS[ui.tab].noun} complete`;
+  $("#progress-sub").textContent = `${done} de ${total} ${TAB_LABELS[ui.tab].noun} concluídos`;
   $("#bar-fill").style.width = pct + "%";
   $("#ring-fg").style.strokeDashoffset = RING_C * (1 - pct / 100);
   countUp($("#progress-pct"), pct);
@@ -181,7 +184,7 @@ function onGridClick(e) {
     const hit = MILESTONES.find((m) => before < m && after >= m);
     if (hit) {
       celebrate(hit >= 100);
-      toast(hit >= 100 ? `🏆 100% — every ${TAB_LABELS[ui.tab].noun.slice(0, -1)} done!` : `🎉 ${hit}% of ${TAB_LABELS[ui.tab].noun}!`);
+      toast(hit >= 100 ? `🏆 100% — todos os ${TAB_LABELS[ui.tab].noun} concluídos!` : `🎉 ${hit}% dos ${TAB_LABELS[ui.tab].noun}!`);
     }
   }
 }
@@ -245,7 +248,7 @@ function exportProgress() {
   a.href = URL.createObjectURL(blob);
   a.download = `tracker-progress-${today()}.json`;
   a.click(); URL.revokeObjectURL(a.href);
-  toast("Progress exported ✓");
+  toast("Progresso exportado ✓");
 }
 function importProgress(file) {
   const reader = new FileReader();
@@ -255,8 +258,8 @@ function importProgress(file) {
       if (typeof incoming !== "object" || !incoming) throw 0;
       progress = { ...progress, ...incoming };
       saveProgress(); render();
-      toast("Progress imported ✓");
-    } catch { toast("⚠︎ Couldn't read that file"); }
+      toast("Progresso importado ✓");
+    } catch { toast("⚠︎ Não foi possível ler o arquivo"); }
   };
   reader.readAsText(file);
 }
@@ -285,7 +288,7 @@ async function init() {
   $("#import-file").addEventListener("change", (e) => e.target.files[0] && importProgress(e.target.files[0]));
 
   try { DATA = await (await fetch("data.json", { cache: "no-cache" })).json(); }
-  catch { $("#grid").innerHTML = `<p class="empty">Couldn't load data.json.</p>`; return; }
+  catch { $("#grid").innerHTML = `<p class="empty">Não foi possível carregar data.json.</p>`; return; }
 
   render();
   setupPointerFX();
