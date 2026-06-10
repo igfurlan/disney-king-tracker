@@ -140,8 +140,14 @@ main { padding: 28px 0 60px; }
   font-size: 1.1rem; font-weight: 800; line-height: 1; transition: 0.2s;
   backdrop-filter: blur(4px); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
-.check:hover { transform: scale(1.12); background: var(--accent); border-color: #fff; color: #fff; }
 .card.done .check { background: var(--good); border-color: var(--good); color: #04210f; }
+/* Hover only on real pointer devices — avoids sticky tap-hover on touch making an
+   unmarked check look filled/marked until you tap elsewhere. */
+@media (hover: hover) {
+  .check:hover { transform: scale(1.12); border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent), 0 2px 10px rgba(0, 0, 0, 0.5); }
+  .card.done .check:hover { background: var(--good); border-color: #fff; color: #04210f; }
+}
 .card.done .poster img { filter: saturate(1.05); }
 .card:not(.done) .poster img { filter: grayscale(0.35) brightness(0.82); }
 
