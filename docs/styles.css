@@ -49,14 +49,27 @@ body[data-tab="movies"] .scene-movies { opacity: 1; }
 body[data-tab="books"]  .scene-books  { opacity: 1; }
 .scene-layer span {
   position: absolute; bottom: -12%; left: var(--x, 50%); font-size: var(--s, 30px);
-  opacity: 0; filter: blur(0.4px) saturate(1.15) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+  opacity: 0; filter: saturate(1.15) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
   animation: floatUp var(--dur, 20s) linear var(--d, 0s) infinite; will-change: transform, opacity;
 }
 @keyframes floatUp {
   0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
-  12%  { opacity: 0.13; }
-  88%  { opacity: 0.13; }
+  12%  { opacity: 0.24; }
+  88%  { opacity: 0.24; }
   100% { transform: translateY(-118vh) rotate(var(--r, 220deg)); opacity: 0; }
+}
+/* Reduced-motion / no-animation fallback: keep the icons visible, statically placed,
+   so the themed scene still shows even when the float animation is suppressed. */
+@media (prefers-reduced-motion: reduce) {
+  .scene-layer span { animation: none; opacity: 0.2; bottom: auto; }
+  .scene-layer span:nth-child(1) { top: 14%; }
+  .scene-layer span:nth-child(2) { top: 64%; }
+  .scene-layer span:nth-child(3) { top: 30%; }
+  .scene-layer span:nth-child(4) { top: 78%; }
+  .scene-layer span:nth-child(5) { top: 20%; }
+  .scene-layer span:nth-child(6) { top: 50%; }
+  .scene-layer span:nth-child(7) { top: 8%;  }
+  .scene-layer span:nth-child(8) { top: 70%; }
 }
 
 .wrap { width: min(1180px, 92vw); margin: 0 auto; }
