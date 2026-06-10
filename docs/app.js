@@ -51,18 +51,18 @@ function cardHTML(it) {
   const st = stateOf(it.id);
   const cover = it.cover
     ? `<img data-src="${it.cover}" alt="Capa de ${escapeAttr(it.title)}" loading="lazy" />` : "";
-  const orig = (it.title_en && it.title_en !== it.title) ? `${escapeHTML(it.title_en)} · ` : "";
+  const orig = (it.title_en && it.title_en !== it.title)
+    ? `<p class="card-orig">${escapeHTML(it.title_en)}</p>` : "";
   return `
   <article class="card ${st.done ? "done" : ""}" data-id="${it.id}">
     <div class="poster">
-      <span class="year-badge">${it.year}</span>
       <button class="check" title="${st.done ? "Desmarcar" : "Marcar como concluído"}" aria-label="marcar como concluído">✓</button>
       ${cover}
     </div>
     <div class="card-body">
       <h3 class="card-title" title="${escapeAttr(it.title)}">${escapeHTML(it.title)}</h3>
-      <p class="card-sub">${orig}<span class="yr">${it.year}</span></p>
-      <span class="chip">${escapeHTML(it.group)}</span>
+      <span class="card-year">${it.year}</span>
+      ${orig}
       <div class="date-row ${st.done ? "" : "hidden"}">
         <label class="date-label">Concluído em</label>
         <input type="date" value="${st.date || ""}" max="2100-12-31" aria-label="data de conclusão" />
