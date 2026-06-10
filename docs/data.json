@@ -1,0 +1,1196 @@
+{
+ "movies": [
+  {
+   "id": "movie:snow-white-and-the-seven-dwarfs-1937",
+   "title": "Snow White and the Seven Dwarfs",
+   "year": 1937,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/3VAHfuNb6Z7UiW12iYKANSPBl8m.jpg"
+  },
+  {
+   "id": "movie:fantasia-1940",
+   "title": "Fantasia",
+   "year": 1940,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/5m9njnidjR0syG2gpVPVgcEMB2X.jpg"
+  },
+  {
+   "id": "movie:pinocchio-1940",
+   "title": "Pinocchio",
+   "year": 1940,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/bnZJrLRnoQHpzEJdka1KYfsAF3N.jpg"
+  },
+  {
+   "id": "movie:dumbo-1941",
+   "title": "Dumbo",
+   "year": 1941,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/4x9FmvdJ464Fg7A9XcbYSmxfVw3.jpg"
+  },
+  {
+   "id": "movie:bambi-1942",
+   "title": "Bambi",
+   "year": 1942,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/wV9e2y4myJ4KMFsyFfWYcUOawyK.jpg"
+  },
+  {
+   "id": "movie:saludos-amigos-1942",
+   "title": "Saludos Amigos",
+   "year": 1942,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/jiNSrKpgKdLXEUasOvNaCBgEner.jpg"
+  },
+  {
+   "id": "movie:the-three-caballeros-1944",
+   "title": "The Three Caballeros",
+   "year": 1944,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/nMfScRxw9wVLoO7LiEjziFAKLSK.jpg"
+  },
+  {
+   "id": "movie:make-mine-music-1946",
+   "title": "Make Mine Music",
+   "year": 1946,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/1Mu98243emXAKy8iZfymUJDgTpS.jpg"
+  },
+  {
+   "id": "movie:fun-and-fancy-free-1947",
+   "title": "Fun and Fancy Free",
+   "year": 1947,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/zBMBHx7JrHIB6U4wYT3q0yvwQuP.jpg"
+  },
+  {
+   "id": "movie:melody-time-1948",
+   "title": "Melody Time",
+   "year": 1948,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/5IlnhKFdNBxYIjEPkJ8N7YHrL0i.jpg"
+  },
+  {
+   "id": "movie:the-adventures-of-ichabod-and-mr-toad-1949",
+   "title": "The Adventures of Ichabod and Mr. Toad",
+   "year": 1949,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/jxj5YILmvzXrviQ0mBQs2dwLX09.jpg"
+  },
+  {
+   "id": "movie:cinderella-1950",
+   "title": "Cinderella",
+   "year": 1950,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/ug3ndicuPM1V07vhVFGLMsd4AZl.jpg"
+  },
+  {
+   "id": "movie:alice-in-wonderland-1951",
+   "title": "Alice in Wonderland",
+   "year": 1951,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/20cvfwfaFqNbe9Fc3VEHJuPRxmn.jpg"
+  },
+  {
+   "id": "movie:peter-pan-1953",
+   "title": "Peter Pan",
+   "year": 1953,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/fJJOs1iyrhKfZceANxoPxPwNGF1.jpg"
+  },
+  {
+   "id": "movie:lady-and-the-tramp-1955",
+   "title": "Lady and the Tramp",
+   "year": 1955,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/340NcWz9SQXWQyf4oicMxjbrLOb.jpg"
+  },
+  {
+   "id": "movie:sleeping-beauty-1959",
+   "title": "Sleeping Beauty",
+   "year": 1959,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/n3pxoMDDxp10c1smgbDzW4bwlzq.jpg"
+  },
+  {
+   "id": "movie:one-hundred-and-one-dalmatians-1961",
+   "title": "One Hundred and One Dalmatians",
+   "year": 1961,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/kSlYq6FrBUviGSEh8v4L9nrSnBT.jpg"
+  },
+  {
+   "id": "movie:the-sword-in-the-stone-1963",
+   "title": "The Sword in the Stone",
+   "year": 1963,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/7lyeeuhGAJSNXYEW34S8mJ1bwI8.jpg"
+  },
+  {
+   "id": "movie:the-jungle-book-1967",
+   "title": "The Jungle Book",
+   "year": 1967,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/yN1kuupnPTLUprgfvC5WapgrxG4.jpg"
+  },
+  {
+   "id": "movie:the-aristocats-1970",
+   "title": "The Aristocats",
+   "year": 1970,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/1BVOSmQUhphMgnTxnXyfQ9tL1Sc.jpg"
+  },
+  {
+   "id": "movie:robin-hood-1973",
+   "title": "Robin Hood",
+   "year": 1973,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/x9AvkYek0bGdxQSZ8W3lAjGrREm.jpg"
+  },
+  {
+   "id": "movie:the-many-adventures-of-winnie-the-pooh-1977",
+   "title": "The Many Adventures of Winnie the Pooh",
+   "year": 1977,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/nefc61WQGahSWoNRrndoqinrZQu.jpg"
+  },
+  {
+   "id": "movie:the-rescuers-1977",
+   "title": "The Rescuers",
+   "year": 1977,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/9jpDjrRyvv9Nw0piXOpHHQTfxw9.jpg"
+  },
+  {
+   "id": "movie:the-fox-and-the-hound-1981",
+   "title": "The Fox and the Hound",
+   "year": 1981,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/aC3k6XBaYnulGSkK8263ABjU3Md.jpg"
+  },
+  {
+   "id": "movie:the-black-cauldron-1985",
+   "title": "The Black Cauldron",
+   "year": 1985,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/h64i9e6oJs2jrDZ4QzspXMqZhPF.jpg"
+  },
+  {
+   "id": "movie:the-great-mouse-detective-1986",
+   "title": "The Great Mouse Detective",
+   "year": 1986,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/9uDr7vfjCFr39KGCcqrk44Cg7fQ.jpg"
+  },
+  {
+   "id": "movie:oliver-company-1988",
+   "title": "Oliver & Company",
+   "year": 1988,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/x8XqdiZ0Oxu5iXF9SiFub9Lae8J.jpg"
+  },
+  {
+   "id": "movie:the-little-mermaid-1989",
+   "title": "The Little Mermaid",
+   "year": 1989,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/plcZXvI310FkbwIptvd6rqk63LP.jpg"
+  },
+  {
+   "id": "movie:the-rescuers-down-under-1990",
+   "title": "The Rescuers Down Under",
+   "year": 1990,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/5koTDBmMAkJOgAe4PL4163UKjvG.jpg"
+  },
+  {
+   "id": "movie:beauty-and-the-beast-1991",
+   "title": "Beauty and the Beast",
+   "year": 1991,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/hUJ0UvQ5tgE2Z9WpfuduVSdiCiU.jpg"
+  },
+  {
+   "id": "movie:aladdin-1992",
+   "title": "Aladdin",
+   "year": 1992,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/eLFfl7vS8dkeG1hKp5mwbm37V83.jpg"
+  },
+  {
+   "id": "movie:the-lion-king-1994",
+   "title": "The Lion King",
+   "year": 1994,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg"
+  },
+  {
+   "id": "movie:pocahontas-1995",
+   "title": "Pocahontas",
+   "year": 1995,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/kZ1ft0QZ4e3zDUPMBftEkwI9ftd.jpg"
+  },
+  {
+   "id": "movie:toy-story-1995",
+   "title": "Toy Story",
+   "year": 1995,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg"
+  },
+  {
+   "id": "movie:the-hunchback-of-notre-dame-1996",
+   "title": "The Hunchback of Notre Dame",
+   "year": 1996,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/hImMgT9B27evYSRmfztqdDtX6qi.jpg"
+  },
+  {
+   "id": "movie:hercules-1997",
+   "title": "Hercules",
+   "year": 1997,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/dK9rNoC97tgX3xXg5zdxFisdfcp.jpg"
+  },
+  {
+   "id": "movie:a-bug-s-life-1998",
+   "title": "A Bug's Life",
+   "year": 1998,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/Ah3J9OJVc2CNCuH2zMydXy9fmIC.jpg"
+  },
+  {
+   "id": "movie:mulan-1998",
+   "title": "Mulan",
+   "year": 1998,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/jAbexAtB0aSfP5Ay4TpWHARyVnG.jpg"
+  },
+  {
+   "id": "movie:fantasia-2000-1999",
+   "title": "Fantasia 2000",
+   "year": 1999,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/5rwAtUaKEK48CPUijVfVU0IPKPZ.jpg"
+  },
+  {
+   "id": "movie:tarzan-1999",
+   "title": "Tarzan",
+   "year": 1999,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/bTvHlcqiOjGa3lFtbrTLTM3zasY.jpg"
+  },
+  {
+   "id": "movie:toy-story-2-1999",
+   "title": "Toy Story 2",
+   "year": 1999,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/4rbcp3ng8n1MKHjpeqW0L7Fnpzz.jpg"
+  },
+  {
+   "id": "movie:dinosaur-2000",
+   "title": "Dinosaur",
+   "year": 2000,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/rSje3FS7ycJSglowlngjsvDt7vO.jpg"
+  },
+  {
+   "id": "movie:the-emperor-s-new-groove-2000",
+   "title": "The Emperor's New Groove",
+   "year": 2000,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/wwbgkXQBEKtnyIJapk6gUgWkVw8.jpg"
+  },
+  {
+   "id": "movie:atlantis-the-lost-empire-2001",
+   "title": "Atlantis: The Lost Empire",
+   "year": 2001,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/oK8yR6xSQreWf1ouP1VpXKwoop5.jpg"
+  },
+  {
+   "id": "movie:monsters-inc-2001",
+   "title": "Monsters, Inc.",
+   "year": 2001,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/wFSpyMsp7H0ttERbxY7Trlv8xry.jpg"
+  },
+  {
+   "id": "movie:lilo-stitch-2002",
+   "title": "Lilo & Stitch",
+   "year": 2002,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/cFuLvQJPoZpuruAtN3rVnMmLIH8.jpg"
+  },
+  {
+   "id": "movie:treasure-planet-2002",
+   "title": "Treasure Planet",
+   "year": 2002,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/kNhZkR3UNbXfvESQo7mJpOi4tGd.jpg"
+  },
+  {
+   "id": "movie:brother-bear-2003",
+   "title": "Brother Bear",
+   "year": 2003,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/otptPbEY0vBostmo95xwiiumMJm.jpg"
+  },
+  {
+   "id": "movie:finding-nemo-2003",
+   "title": "Finding Nemo",
+   "year": 2003,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/5lc6nQc0VhWFYFbNv016xze8Jvy.jpg"
+  },
+  {
+   "id": "movie:home-on-the-range-2004",
+   "title": "Home on the Range",
+   "year": 2004,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/cgKnkbO3fNWwKc9qLyLYdeZQ9Vj.jpg"
+  },
+  {
+   "id": "movie:the-incredibles-2004",
+   "title": "The Incredibles",
+   "year": 2004,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/2LqaLgk4Z226KkgPJuiOQ58wvrm.jpg"
+  },
+  {
+   "id": "movie:chicken-little-2005",
+   "title": "Chicken Little",
+   "year": 2005,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/87FpA4b90eTaw3U6zmCNikoPLir.jpg"
+  },
+  {
+   "id": "movie:cars-2006",
+   "title": "Cars",
+   "year": 2006,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/2Touk3m5gzsqr1VsvxypdyHY5ci.jpg"
+  },
+  {
+   "id": "movie:meet-the-robinsons-2007",
+   "title": "Meet the Robinsons",
+   "year": 2007,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/naya0zF4kT401Sx15AtwB9vpcJr.jpg"
+  },
+  {
+   "id": "movie:ratatouille-2007",
+   "title": "Ratatouille",
+   "year": 2007,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/t3vaWRPSf6WjDSamIkKDs1iQWna.jpg"
+  },
+  {
+   "id": "movie:bolt-2008",
+   "title": "Bolt",
+   "year": 2008,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/v5aC4nrzXFGJDWY4JO1eengXzqk.jpg"
+  },
+  {
+   "id": "movie:wall-e-2008",
+   "title": "WALL-E",
+   "year": 2008,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/pJfm3EggGLZToce08Obf7HQHXrP.jpg"
+  },
+  {
+   "id": "movie:the-princess-and-the-frog-2009",
+   "title": "The Princess and the Frog",
+   "year": 2009,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/v6nAUs62OJ4DXmnnmPFeVmMz8H9.jpg"
+  },
+  {
+   "id": "movie:up-2009",
+   "title": "Up",
+   "year": 2009,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/mFvoEwSfLqbcWwFsDjQebn9bzFe.jpg"
+  },
+  {
+   "id": "movie:tangled-2010",
+   "title": "Tangled",
+   "year": 2010,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/ym7Kst6a4uodryxqbGOxmewF235.jpg"
+  },
+  {
+   "id": "movie:toy-story-3-2010",
+   "title": "Toy Story 3",
+   "year": 2010,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/AbbXspMOwdvwWZgVN0nabZq03Ec.jpg"
+  },
+  {
+   "id": "movie:cars-2-2011",
+   "title": "Cars 2",
+   "year": 2011,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/okIz1HyxeVOMzYwwHUjH2pHi74I.jpg"
+  },
+  {
+   "id": "movie:winnie-the-pooh-2011",
+   "title": "Winnie the Pooh",
+   "year": 2011,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/xlFs85nq62jeR4a9iHNGB113m6x.jpg"
+  },
+  {
+   "id": "movie:brave-2012",
+   "title": "Brave",
+   "year": 2012,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/1XAuDtMWpL0sYSFK0R6EZate2Ux.jpg"
+  },
+  {
+   "id": "movie:wreck-it-ralph-2012",
+   "title": "Wreck-It Ralph",
+   "year": 2012,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/zWoIgZ7mgmPkaZjG0102BSKFIqQ.jpg"
+  },
+  {
+   "id": "movie:frozen-2013",
+   "title": "Frozen",
+   "year": 2013,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/kgwjIb2JDHRhNk13lmSxiClFjVk.jpg"
+  },
+  {
+   "id": "movie:monsters-university-2013",
+   "title": "Monsters University",
+   "year": 2013,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/y7thwJ7z5Bplv6vwl6RI0yteaDD.jpg"
+  },
+  {
+   "id": "movie:big-hero-6-2014",
+   "title": "Big Hero 6",
+   "year": 2014,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/2mxS4wUimwlLmI1xp6QW6NSU361.jpg"
+  },
+  {
+   "id": "movie:inside-out-2015",
+   "title": "Inside Out",
+   "year": 2015,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/2H1TmgdfNtsKlU9jKdeNyYL5y8T.jpg"
+  },
+  {
+   "id": "movie:the-good-dinosaur-2015",
+   "title": "The Good Dinosaur",
+   "year": 2015,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/8RSkxOO80btfKjyiC5ZiTaCHIT8.jpg"
+  },
+  {
+   "id": "movie:finding-dory-2016",
+   "title": "Finding Dory",
+   "year": 2016,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/3UVe8NL1E2ZdUZ9EDlKGJY5UzE.jpg"
+  },
+  {
+   "id": "movie:moana-2016",
+   "title": "Moana",
+   "year": 2016,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/9tzN8sPbyod2dsa0lwuvrwBDWra.jpg"
+  },
+  {
+   "id": "movie:zootopia-2016",
+   "title": "Zootopia",
+   "year": 2016,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/hlK0e0wAQ3VLuJcsfIYPvb4JVud.jpg"
+  },
+  {
+   "id": "movie:cars-3-2017",
+   "title": "Cars 3",
+   "year": 2017,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/zg5RDxvIIAKsucjuU2EZJIHEIvz.jpg"
+  },
+  {
+   "id": "movie:coco-2017",
+   "title": "Coco",
+   "year": 2017,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/6Ryitt95xrO8KXuqRGm1fUuNwqF.jpg"
+  },
+  {
+   "id": "movie:incredibles-2-2018",
+   "title": "Incredibles 2",
+   "year": 2018,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/9lFKBtaVIhP7E2Pk0IY1CwTKTMZ.jpg"
+  },
+  {
+   "id": "movie:ralph-breaks-the-internet-2018",
+   "title": "Ralph Breaks the Internet",
+   "year": 2018,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/iVCrhBcpDaHGvv7CLYbK6PuXZo1.jpg"
+  },
+  {
+   "id": "movie:frozen-ii-2019",
+   "title": "Frozen II",
+   "year": 2019,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/mINJaa34MtknCYl5AjtNJzWj8cD.jpg"
+  },
+  {
+   "id": "movie:toy-story-4-2019",
+   "title": "Toy Story 4",
+   "year": 2019,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/w9kR8qbmQ01HwnvK4alvnQ2ca0L.jpg"
+  },
+  {
+   "id": "movie:onward-2020",
+   "title": "Onward",
+   "year": 2020,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/f4aul3FyD3jv3v4bul1IrkWZvzq.jpg"
+  },
+  {
+   "id": "movie:soul-2020",
+   "title": "Soul",
+   "year": 2020,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/6jmppcaubzLF8wkXM36ganVISCo.jpg"
+  },
+  {
+   "id": "movie:encanto-2021",
+   "title": "Encanto",
+   "year": 2021,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg"
+  },
+  {
+   "id": "movie:luca-2021",
+   "title": "Luca",
+   "year": 2021,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/9x4i9uKGXt8IiiIF5Ey0DIoY738.jpg"
+  },
+  {
+   "id": "movie:raya-and-the-last-dragon-2021",
+   "title": "Raya and the Last Dragon",
+   "year": 2021,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/5nVhgCzxKbK47OLIKxCR1syulOn.jpg"
+  },
+  {
+   "id": "movie:lightyear-2022",
+   "title": "Lightyear",
+   "year": 2022,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/b9t3w1loraDh7hjdWmpc9ZsaYns.jpg"
+  },
+  {
+   "id": "movie:strange-world-2022",
+   "title": "Strange World",
+   "year": 2022,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/a9x70QUXs6uEwtin1SGNKoFXoia.jpg"
+  },
+  {
+   "id": "movie:turning-red-2022",
+   "title": "Turning Red",
+   "year": 2022,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/qsdjk9oAKSQMWs0Vt5Pyfh6O4GZ.jpg"
+  },
+  {
+   "id": "movie:elemental-2023",
+   "title": "Elemental",
+   "year": 2023,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/4Y1WNkd88JXmGfhtWR7dmDAo1T2.jpg"
+  },
+  {
+   "id": "movie:wish-2023",
+   "title": "Wish",
+   "year": 2023,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/nesuSdJakNkf0zs7OfoasB6Clxf.jpg"
+  },
+  {
+   "id": "movie:inside-out-2-2024",
+   "title": "Inside Out 2",
+   "year": 2024,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg"
+  },
+  {
+   "id": "movie:moana-2-2024",
+   "title": "Moana 2",
+   "year": 2024,
+   "group": "Disney Animation",
+   "cover": "https://image.tmdb.org/t/p/w500/aLVkiINlIeCkcZIzb7XHzPYgO6L.jpg"
+  },
+  {
+   "id": "movie:elio-2025",
+   "title": "Elio",
+   "year": 2025,
+   "group": "Pixar",
+   "cover": "https://image.tmdb.org/t/p/w500/7z8jDiTZZco9moIKpTUImFtTy7o.jpg"
+  }
+ ],
+ "books": [
+  {
+   "id": "book:carrie-1974",
+   "title": "Carrie",
+   "year": 1974,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/9256043-L.jpg"
+  },
+  {
+   "id": "book:salem-s-lot-1975",
+   "title": "'Salem's Lot",
+   "year": 1975,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14654118-L.jpg"
+  },
+  {
+   "id": "book:rage-1977",
+   "title": "Rage",
+   "year": 1977,
+   "group": "Bachman",
+   "cover": "https://covers.openlibrary.org/b/id/8565607-L.jpg"
+  },
+  {
+   "id": "book:the-shining-1977",
+   "title": "The Shining",
+   "year": 1977,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/12376585-L.jpg"
+  },
+  {
+   "id": "book:night-shift-1978",
+   "title": "Night Shift",
+   "year": 1978,
+   "group": "Collection",
+   "cover": "https://covers.openlibrary.org/b/id/14651337-L.jpg"
+  },
+  {
+   "id": "book:the-stand-1978",
+   "title": "The Stand",
+   "year": 1978,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/9255992-L.jpg"
+  },
+  {
+   "id": "book:the-dead-zone-1979",
+   "title": "The Dead Zone",
+   "year": 1979,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14653991-L.jpg"
+  },
+  {
+   "id": "book:the-long-walk-1979",
+   "title": "The Long Walk",
+   "year": 1979,
+   "group": "Bachman",
+   "cover": "https://covers.openlibrary.org/b/id/14653609-L.jpg"
+  },
+  {
+   "id": "book:firestarter-1980",
+   "title": "Firestarter",
+   "year": 1980,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/12015446-L.jpg"
+  },
+  {
+   "id": "book:cujo-1981",
+   "title": "Cujo",
+   "year": 1981,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/8570003-L.jpg"
+  },
+  {
+   "id": "book:roadwork-1981",
+   "title": "Roadwork",
+   "year": 1981,
+   "group": "Bachman",
+   "cover": "https://covers.openlibrary.org/b/id/8565607-L.jpg"
+  },
+  {
+   "id": "book:different-seasons-1982",
+   "title": "Different Seasons",
+   "year": 1982,
+   "group": "Collection",
+   "cover": "https://covers.openlibrary.org/b/id/14655761-L.jpg"
+  },
+  {
+   "id": "book:the-gunslinger-1982",
+   "title": "The Gunslinger",
+   "year": 1982,
+   "group": "Dark Tower",
+   "cover": "https://covers.openlibrary.org/b/id/8396638-L.jpg"
+  },
+  {
+   "id": "book:the-running-man-1982",
+   "title": "The Running Man",
+   "year": 1982,
+   "group": "Bachman",
+   "cover": "https://covers.openlibrary.org/b/id/14651762-L.jpg"
+  },
+  {
+   "id": "book:christine-1983",
+   "title": "Christine",
+   "year": 1983,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14655985-L.jpg"
+  },
+  {
+   "id": "book:cycle-of-the-werewolf-1983",
+   "title": "Cycle of the Werewolf",
+   "year": 1983,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14651552-L.jpg"
+  },
+  {
+   "id": "book:pet-sematary-1983",
+   "title": "Pet Sematary",
+   "year": 1983,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/12015500-L.jpg"
+  },
+  {
+   "id": "book:the-talisman-1984",
+   "title": "The Talisman",
+   "year": 1984,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14651566-L.jpg"
+  },
+  {
+   "id": "book:thinner-1984",
+   "title": "Thinner",
+   "year": 1984,
+   "group": "Bachman",
+   "cover": "https://covers.openlibrary.org/b/id/8274288-L.jpg"
+  },
+  {
+   "id": "book:skeleton-crew-1985",
+   "title": "Skeleton Crew",
+   "year": 1985,
+   "group": "Collection",
+   "cover": "https://covers.openlibrary.org/b/id/14657166-L.jpg"
+  },
+  {
+   "id": "book:it-1986",
+   "title": "It",
+   "year": 1986,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/8569284-L.jpg"
+  },
+  {
+   "id": "book:misery-1987",
+   "title": "Misery",
+   "year": 1987,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/8259296-L.jpg"
+  },
+  {
+   "id": "book:the-drawing-of-the-three-1987",
+   "title": "The Drawing of the Three",
+   "year": 1987,
+   "group": "Dark Tower",
+   "cover": "https://covers.openlibrary.org/b/id/14651245-L.jpg"
+  },
+  {
+   "id": "book:the-eyes-of-the-dragon-1987",
+   "title": "The Eyes of the Dragon",
+   "year": 1987,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/8524085-L.jpg"
+  },
+  {
+   "id": "book:the-tommyknockers-1987",
+   "title": "The Tommyknockers",
+   "year": 1987,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/6997458-L.jpg"
+  },
+  {
+   "id": "book:the-dark-half-1989",
+   "title": "The Dark Half",
+   "year": 1989,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/8530409-L.jpg"
+  },
+  {
+   "id": "book:four-past-midnight-1990",
+   "title": "Four Past Midnight",
+   "year": 1990,
+   "group": "Collection",
+   "cover": "https://covers.openlibrary.org/b/id/8413143-L.jpg"
+  },
+  {
+   "id": "book:needful-things-1991",
+   "title": "Needful Things",
+   "year": 1991,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/8404327-L.jpg"
+  },
+  {
+   "id": "book:the-waste-lands-1991",
+   "title": "The Waste Lands",
+   "year": 1991,
+   "group": "Dark Tower",
+   "cover": "https://covers.openlibrary.org/b/id/14654089-L.jpg"
+  },
+  {
+   "id": "book:dolores-claiborne-1992",
+   "title": "Dolores Claiborne",
+   "year": 1992,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/9255997-L.jpg"
+  },
+  {
+   "id": "book:gerald-s-game-1992",
+   "title": "Gerald's Game",
+   "year": 1992,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/10705875-L.jpg"
+  },
+  {
+   "id": "book:nightmares-dreamscapes-1993",
+   "title": "Nightmares & Dreamscapes",
+   "year": 1993,
+   "group": "Collection",
+   "cover": "https://covers.openlibrary.org/b/id/14654718-L.jpg"
+  },
+  {
+   "id": "book:insomnia-1994",
+   "title": "Insomnia",
+   "year": 1994,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/7886954-L.jpg"
+  },
+  {
+   "id": "book:rose-madder-1995",
+   "title": "Rose Madder",
+   "year": 1995,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/8578049-L.jpg"
+  },
+  {
+   "id": "book:desperation-1996",
+   "title": "Desperation",
+   "year": 1996,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/8757374-L.jpg"
+  },
+  {
+   "id": "book:the-green-mile-1996",
+   "title": "The Green Mile",
+   "year": 1996,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/9334567-L.jpg"
+  },
+  {
+   "id": "book:the-regulators-1996",
+   "title": "The Regulators",
+   "year": 1996,
+   "group": "Bachman",
+   "cover": "https://covers.openlibrary.org/b/id/14651906-L.jpg"
+  },
+  {
+   "id": "book:wizard-and-glass-1997",
+   "title": "Wizard and Glass",
+   "year": 1997,
+   "group": "Dark Tower",
+   "cover": "https://covers.openlibrary.org/b/id/14657088-L.jpg"
+  },
+  {
+   "id": "book:bag-of-bones-1998",
+   "title": "Bag of Bones",
+   "year": 1998,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14653458-L.jpg"
+  },
+  {
+   "id": "book:hearts-in-atlantis-1999",
+   "title": "Hearts in Atlantis",
+   "year": 1999,
+   "group": "Collection",
+   "cover": "https://covers.openlibrary.org/b/id/8536326-L.jpg"
+  },
+  {
+   "id": "book:the-girl-who-loved-tom-gordon-1999",
+   "title": "The Girl Who Loved Tom Gordon",
+   "year": 1999,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14653580-L.jpg"
+  },
+  {
+   "id": "book:black-house-2001",
+   "title": "Black House",
+   "year": 2001,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/926673-L.jpg"
+  },
+  {
+   "id": "book:dreamcatcher-2001",
+   "title": "Dreamcatcher",
+   "year": 2001,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14651654-L.jpg"
+  },
+  {
+   "id": "book:everything-s-eventual-2002",
+   "title": "Everything's Eventual",
+   "year": 2002,
+   "group": "Collection",
+   "cover": "https://covers.openlibrary.org/b/id/8585782-L.jpg"
+  },
+  {
+   "id": "book:from-a-buick-8-2002",
+   "title": "From a Buick 8",
+   "year": 2002,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/6502777-L.jpg"
+  },
+  {
+   "id": "book:wolves-of-the-calla-2003",
+   "title": "Wolves of the Calla",
+   "year": 2003,
+   "group": "Dark Tower",
+   "cover": "https://covers.openlibrary.org/b/id/14652470-L.jpg"
+  },
+  {
+   "id": "book:song-of-susannah-2004",
+   "title": "Song of Susannah",
+   "year": 2004,
+   "group": "Dark Tower",
+   "cover": "https://covers.openlibrary.org/b/id/8393691-L.jpg"
+  },
+  {
+   "id": "book:the-dark-tower-2004",
+   "title": "The Dark Tower",
+   "year": 2004,
+   "group": "Dark Tower",
+   "cover": "https://covers.openlibrary.org/b/id/14656148-L.jpg"
+  },
+  {
+   "id": "book:the-colorado-kid-2005",
+   "title": "The Colorado Kid",
+   "year": 2005,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/8380883-L.jpg"
+  },
+  {
+   "id": "book:cell-2006",
+   "title": "Cell",
+   "year": 2006,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14654054-L.jpg"
+  },
+  {
+   "id": "book:lisey-s-story-2006",
+   "title": "Lisey's Story",
+   "year": 2006,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/8387657-L.jpg"
+  },
+  {
+   "id": "book:blaze-2007",
+   "title": "Blaze",
+   "year": 2007,
+   "group": "Bachman",
+   "cover": "https://covers.openlibrary.org/b/id/14652676-L.jpg"
+  },
+  {
+   "id": "book:duma-key-2008",
+   "title": "Duma Key",
+   "year": 2008,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14652203-L.jpg"
+  },
+  {
+   "id": "book:just-after-sunset-2008",
+   "title": "Just After Sunset",
+   "year": 2008,
+   "group": "Collection",
+   "cover": "https://covers.openlibrary.org/b/id/8494916-L.jpg"
+  },
+  {
+   "id": "book:under-the-dome-2009",
+   "title": "Under the Dome",
+   "year": 2009,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14651549-L.jpg"
+  },
+  {
+   "id": "book:full-dark-no-stars-2010",
+   "title": "Full Dark, No Stars",
+   "year": 2010,
+   "group": "Collection",
+   "cover": "https://covers.openlibrary.org/b/id/12018685-L.jpg"
+  },
+  {
+   "id": "book:11-22-63-2011",
+   "title": "11/22/63",
+   "year": 2011,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/10713447-L.jpg"
+  },
+  {
+   "id": "book:the-wind-through-the-keyhole-2012",
+   "title": "The Wind Through the Keyhole",
+   "year": 2012,
+   "group": "Dark Tower",
+   "cover": "https://covers.openlibrary.org/b/id/14653576-L.jpg"
+  },
+  {
+   "id": "book:doctor-sleep-2013",
+   "title": "Doctor Sleep",
+   "year": 2013,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14652972-L.jpg"
+  },
+  {
+   "id": "book:joyland-2013",
+   "title": "Joyland",
+   "year": 2013,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/9154939-L.jpg"
+  },
+  {
+   "id": "book:mr-mercedes-2014",
+   "title": "Mr. Mercedes",
+   "year": 2014,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14653120-L.jpg"
+  },
+  {
+   "id": "book:revival-2014",
+   "title": "Revival",
+   "year": 2014,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14652892-L.jpg"
+  },
+  {
+   "id": "book:finders-keepers-2015",
+   "title": "Finders Keepers",
+   "year": 2015,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/8339525-L.jpg"
+  },
+  {
+   "id": "book:the-bazaar-of-bad-dreams-2015",
+   "title": "The Bazaar of Bad Dreams",
+   "year": 2015,
+   "group": "Collection",
+   "cover": "https://covers.openlibrary.org/b/id/12018432-L.jpg"
+  },
+  {
+   "id": "book:end-of-watch-2016",
+   "title": "End of Watch",
+   "year": 2016,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/12376085-L.jpg"
+  },
+  {
+   "id": "book:gwendy-s-button-box-2017",
+   "title": "Gwendy's Button Box",
+   "year": 2017,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/9325640-L.jpg"
+  },
+  {
+   "id": "book:sleeping-beauties-2017",
+   "title": "Sleeping Beauties",
+   "year": 2017,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/10713424-L.jpg"
+  },
+  {
+   "id": "book:elevation-2018",
+   "title": "Elevation",
+   "year": 2018,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/12376066-L.jpg"
+  },
+  {
+   "id": "book:the-outsider-2018",
+   "title": "The Outsider",
+   "year": 2018,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/11412999-L.jpg"
+  },
+  {
+   "id": "book:the-institute-2019",
+   "title": "The Institute",
+   "year": 2019,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/10712767-L.jpg"
+  },
+  {
+   "id": "book:if-it-bleeds-2020",
+   "title": "If It Bleeds",
+   "year": 2020,
+   "group": "Collection",
+   "cover": "https://covers.openlibrary.org/b/id/14654512-L.jpg"
+  },
+  {
+   "id": "book:billy-summers-2021",
+   "title": "Billy Summers",
+   "year": 2021,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14654070-L.jpg"
+  },
+  {
+   "id": "book:later-2021",
+   "title": "Later",
+   "year": 2021,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14654000-L.jpg"
+  },
+  {
+   "id": "book:fairy-tale-2022",
+   "title": "Fairy Tale",
+   "year": 2022,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14655682-L.jpg"
+  },
+  {
+   "id": "book:gwendy-s-final-task-2022",
+   "title": "Gwendy's Final Task",
+   "year": 2022,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14655224-L.jpg"
+  },
+  {
+   "id": "book:holly-2023",
+   "title": "Holly",
+   "year": 2023,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14655773-L.jpg"
+  },
+  {
+   "id": "book:you-like-it-darker-2024",
+   "title": "You Like It Darker",
+   "year": 2024,
+   "group": "Collection",
+   "cover": "https://covers.openlibrary.org/b/id/14544172-L.jpg"
+  },
+  {
+   "id": "book:never-flinch-2025",
+   "title": "Never Flinch",
+   "year": 2025,
+   "group": "Novel",
+   "cover": "https://covers.openlibrary.org/b/id/14825714-L.jpg"
+  }
+ ]
+}
