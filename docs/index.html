@@ -13,6 +13,14 @@
 </head>
 <body data-tab="movies">
   <div class="aurora" aria-hidden="true"></div>
+  <div class="spotlight" aria-hidden="true"></div>
+  <div class="page-turn" id="page-turn" aria-hidden="true"></div>
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="clap">
+      <div class="clap-top"></div>
+      <div class="clap-body">🎬<span class="clap-amp">&amp;</span>📚</div>
+    </div>
+  </div>
 
   <header class="site-header">
     <div class="wrap">
@@ -34,7 +42,13 @@
           <h2 id="progress-title">Films watched</h2>
           <p id="progress-sub" class="progress-sub">—</p>
         </div>
-        <div class="progress-pct" id="progress-pct">0%</div>
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="ring-bg" cx="60" cy="60" r="52" />
+            <circle class="ring-fg" id="ring-fg" cx="60" cy="60" r="52" />
+          </svg>
+          <div class="progress-pct" id="progress-pct">0%</div>
+        </div>
       </div>
       <div class="bar"><div class="bar-fill" id="bar-fill" style="width:0%"></div></div>
       <div class="group-stats" id="group-stats"></div>

@@ -112,12 +112,21 @@ main { padding: 28px 0 60px; }
 .card {
   position: relative; border-radius: 14px; overflow: hidden;
   background: var(--panel); border: 1px solid var(--panel-brd);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
-  animation: pop 0.4s ease both;
+  transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.25s;
+  transform: perspective(820px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px));
+  transform-style: preserve-3d; will-change: transform;
+  animation: pop 0.45s ease both;
 }
-.card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+.card:hover { --lift: -6px; box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
 .card.done { border-color: color-mix(in srgb, var(--good) 55%, transparent); }
-@keyframes pop { from { opacity: 0; transform: translateY(10px); } }
+@keyframes pop { from { opacity: 0; } }
+/* tilt shine */
+.card::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: 2;
+  pointer-events: none; opacity: 0; transition: opacity 0.25s;
+  background: radial-gradient(circle at var(--sx, 50%) var(--sy, 50%), rgba(255, 255, 255, 0.22), transparent 55%);
+}
+.card:hover::after { opacity: 1; }
 
 .poster { position: relative; aspect-ratio: 2 / 3; background: #1b1b27 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23333'%3E%3Cpath d='M4 4h16v16H4z' opacity='.2'/%3E%3C/svg%3E") center/40px no-repeat; }
 .poster img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity 0.4s; }
@@ -237,5 +246,75 @@ body[data-tab="movies"]::after { opacity: 0.07; }
 .logo-emoji { display: inline-block; animation: float 4s ease-in-out infinite; }
 .logo-emoji:last-child { animation-delay: -2s; }
 @keyframes float { 50% { transform: translateY(-7px) rotate(-4deg); } }
+
+/* =========================================================
+   EXTRA FLAIR
+   ========================================================= */
+
+/* Clapperboard intro */
+.intro {
+  position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center;
+  background: #06060a; animation: introOut 0.7s ease 1.9s forwards;
+}
+.intro.gone { display: none; }
+.clap { width: 180px; filter: drop-shadow(0 24px 44px rgba(0, 0, 0, 0.6)); }
+.clap-top {
+  height: 32px; border-radius: 5px; transform-origin: left bottom;
+  background: repeating-linear-gradient(115deg, #f4f4f4 0 18px, #15151c 18px 36px);
+  animation: clapSnap 1.6s ease;
+}
+.clap-body {
+  margin-top: 5px; height: 128px; border-radius: 9px; background: #111119;
+  border: 2px solid #23232f; display: flex; align-items: center; justify-content: center;
+  gap: 8px; font-size: 2.8rem;
+}
+.clap-amp { font-family: Fraunces, serif; color: var(--muted); font-size: 1.7rem; }
+@keyframes clapSnap { 0%, 16% { transform: rotate(-32deg); } 38% { transform: rotate(0); } 52% { transform: rotate(-8deg); } 66%, 100% { transform: rotate(0); } }
+@keyframes introOut { to { opacity: 0; visibility: hidden; } }
+
+/* Cursor spotlight */
+.spotlight {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0; transition: opacity 0.5s;
+  background: radial-gradient(280px 280px at var(--mx, 50%) var(--my, 35%),
+    color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%);
+}
+body.has-pointer .spotlight { opacity: 1; }
+
+/* Progress ring */
+.ring-wrap { position: relative; width: 96px; height: 96px; flex: none; }
+.ring { width: 96px; height: 96px; transform: rotate(-90deg); }
+.ring circle { fill: none; stroke-width: 9; }
+.ring-bg { stroke: rgba(255, 255, 255, 0.08); }
+.ring-fg {
+  stroke: var(--accent); stroke-linecap: round; stroke-dasharray: 327; stroke-dashoffset: 327;
+  transition: stroke-dashoffset 0.7s cubic-bezier(0.22, 1, 0.36, 1), stroke 0.4s;
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 55%, transparent));
+}
+.ring-wrap .progress-pct {
+  position: absolute; inset: 0; display: grid; place-items: center; font-size: 1.4rem;
+}
+
+/* Books: page-turn + parchment */
+.page-turn {
+  position: fixed; inset: 0; z-index: 900; pointer-events: none; transform-origin: left center;
+  visibility: hidden; opacity: 0; box-shadow: -30px 0 60px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(105deg, #f3ead2 0%, #ddcfa9 55%, #c7b78d 100%);
+}
+.page-turn.flip { animation: pageflip 0.85s cubic-bezier(0.45, 0, 0.25, 1) forwards; }
+@keyframes pageflip {
+  0% { visibility: visible; opacity: 1; transform: perspective(2000px) rotateY(0); }
+  100% { visibility: visible; opacity: 1; transform: perspective(2000px) rotateY(-172deg); }
+}
+body[data-tab="books"] .card-title { font-family: Fraunces, serif; font-weight: 600; }
+body[data-tab="books"] .progress-card {
+  background: linear-gradient(180deg, color-mix(in srgb, #d9c9a0 9%, var(--panel)), var(--panel));
+}
+
+/* Milestone confetti rain */
+.confetti-fall {
+  position: fixed; top: -20px; width: 9px; height: 14px; border-radius: 2px;
+  z-index: 300; pointer-events: none; animation: fall var(--dur, 1.4s) ease-in forwards;
+}
+@keyframes fall { to { transform: translate(var(--x, 0), 106vh) rotate(var(--rot, 360deg)); opacity: 0.85; } }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

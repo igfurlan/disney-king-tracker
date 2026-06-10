@@ -1,9 +1,14 @@
 /* Movies & Books Tracker — static, localStorage-backed. */
 const STORE_KEY = "dk-tracker-progress-v1";
 const TAB_LABELS = {
-  movies: { title: "Films watched", noun: "films", emoji: "🎬" },
-  books:  { title: "Books read",    noun: "books", emoji: "📚" },
+  movies: { title: "Films watched", noun: "films" },
+  books:  { title: "Books read",    noun: "books" },
 };
+const COLORS = ["#ffb020", "#ff5e6c", "#7c5cff", "#34d399", "#6c8cff", "#c061ff"];
+const RING_C = 327; // 2πr, r=52
+const MILESTONES = [25, 50, 75, 100];
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const finePointer = matchMedia("(pointer: fine)").matches;
 
 let DATA = { movies: [], books: [] };
 let progress = loadProgress();
@@ -19,11 +24,14 @@ function saveProgress() { localStorage.setItem(STORE_KEY, JSON.stringify(progres
 /* ---------- helpers ---------- */
 const $ = (sel) => document.querySelector(sel);
 const items = () => DATA[ui.tab] || [];
-function stateOf(id) { return progress[id] || { done: false, date: "" }; }
+const stateOf = (id) => progress[id] || { done: false, date: "" };
+const countDone = (list) => list.filter((it) => stateOf(it.id).done).length;
+const pctOf = (list) => (list.length ? Math.round((countDone(list) / list.length) * 100) : 0);
+const today = () => new Date().toISOString().slice(0, 10);
 
 /* ---------- rendering ---------- */
 function applyView(list) {
-  let out = list.filter((it) => {
+  const out = list.filter((it) => {
     const st = stateOf(it.id);
     if (ui.filter === "done" && !st.done) return false;
     if (ui.filter === "todo" && st.done) return false;
@@ -42,8 +50,7 @@ function applyView(list) {
 function cardHTML(it) {
   const st = stateOf(it.id);
   const cover = it.cover
-    ? `<img data-src="${it.cover}" alt="${escapeAttr(it.title)} cover" loading="lazy" />`
-    : "";
+    ? `<img data-src="${it.cover}" alt="${escapeAttr(it.title)} cover" loading="lazy" />` : "";
   return `
   <article class="card ${st.done ? "done" : ""}" data-id="${it.id}">
     <div class="poster">
@@ -62,77 +69,82 @@ function cardHTML(it) {
 }
 
 function render() {
-  const list = applyView(items());
   const grid = $("#grid");
+  const list = applyView(items());
   grid.innerHTML = list.map(cardHTML).join("");
   $("#empty").hidden = list.length > 0;
-
-  // stagger entrance + lazy image fade-in
   [...grid.children].forEach((card, i) => {
     card.style.animationDelay = `${Math.min(i * 22, 600)}ms`;
     const img = card.querySelector("img");
     if (img) {
       img.src = img.dataset.src;
       img.addEventListener("load", () => img.classList.add("loaded"), { once: true });
-      img.addEventListener("error", () => { img.classList.add("loaded"); img.style.opacity = .25; }, { once: true });
+      img.addEventListener("error", () => { img.classList.add("loaded"); img.style.opacity = .2; }, { once: true });
     }
   });
   renderProgress();
-  $("#footer-count").textContent =
-    `${items().length} ${TAB_LABELS[ui.tab].noun} · ${countDone(items())} done`;
+  updateFooter();
 }
 
-function countDone(list) { return list.filter((it) => stateOf(it.id).done).length; }
+function updateFooter() {
+  $("#footer-count").textContent = `${items().length} ${TAB_LABELS[ui.tab].noun} · ${countDone(items())} done`;
+}
 
 function renderProgress() {
   const list = items();
-  const total = list.length;
-  const done = countDone(list);
-  const pct = total ? Math.round((done / total) * 100) : 0;
+  const total = list.length, done = countDone(list), pct = pctOf(list);
   $("#progress-title").textContent = TAB_LABELS[ui.tab].title;
   $("#progress-sub").textContent = `${done} of ${total} ${TAB_LABELS[ui.tab].noun} complete`;
   $("#bar-fill").style.width = pct + "%";
+  $("#ring-fg").style.strokeDashoffset = RING_C * (1 - pct / 100);
   countUp($("#progress-pct"), pct);
 
-  // per-group breakdown
   const groups = {};
   list.forEach((it) => {
-    groups[it.group] = groups[it.group] || { t: 0, d: 0 };
-    groups[it.group].t++;
+    (groups[it.group] ||= { t: 0, d: 0 }).t++;
     if (stateOf(it.id).done) groups[it.group].d++;
   });
   $("#group-stats").innerHTML = Object.entries(groups)
-    .map(([g, s]) => `<span class="gchip">${escapeHTML(g)} <b>${s.d}/${s.t}</b></span>`)
-    .join("");
+    .map(([g, s]) => `<span class="gchip">${escapeHTML(g)} <b>${s.d}/${s.t}</b></span>`).join("");
 }
 
 /* ---------- animations ---------- */
 function countUp(el, target) {
   const from = parseInt(el.dataset.v || "0", 10);
-  if (from === target) { el.textContent = target + "%"; return; }
-  const start = performance.now(), dur = 600;
-  function step(now) {
-    const p = Math.min((now - start) / dur, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.round(from + (target - from) * eased) + "%";
-    if (p < 1) requestAnimationFrame(step);
-    else el.dataset.v = target;
-  }
   el.dataset.v = target;
-  requestAnimationFrame(step);
+  if (reduce || from === target) { el.textContent = target + "%"; return; }
+  const start = performance.now(), dur = 600;
+  (function step(now) {
+    const p = Math.min((now - start) / dur, 1);
+    el.textContent = Math.round(from + (target - from) * (1 - Math.pow(1 - p, 3))) + "%";
+    if (p < 1) requestAnimationFrame(step);
+  })(start);
 }
 
 function burst(x, y) {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const colors = ["#ffb020", "#ff5e6c", "#7c5cff", "#34d399", "#6c8cff"];
+  if (reduce) return;
   for (let i = 0; i < 14; i++) {
     const p = document.createElement("span");
     p.className = "particle";
     const a = Math.random() * Math.PI * 2, d = 40 + Math.random() * 50;
-    p.style.cssText = `left:${x}px;top:${y}px;background:${colors[i % colors.length]};
+    p.style.cssText = `left:${x}px;top:${y}px;background:${COLORS[i % COLORS.length]};
       --tx:${Math.cos(a) * d}px;--ty:${Math.sin(a) * d}px`;
     document.body.appendChild(p);
     setTimeout(() => p.remove(), 750);
+  }
+}
+
+function celebrate(big) {
+  if (reduce) return;
+  const n = big ? 80 : 38;
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement("span");
+    p.className = "confetti-fall";
+    p.style.cssText = `left:${Math.random() * 100}vw;background:${COLORS[i % COLORS.length]};
+      --dur:${(1 + Math.random() * 1.3).toFixed(2)}s;--x:${(Math.random() * 140 - 70)}px;
+      --rot:${Math.random() * 720}deg;animation-delay:${(Math.random() * 0.3).toFixed(2)}s`;
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 2700);
   }
 }
 
@@ -140,50 +152,90 @@ let toastT;
 function toast(msg) {
   const t = $("#toast");
   t.textContent = msg; t.classList.add("show");
-  clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 2200);
+  clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 2400);
 }
 
 /* ---------- events ---------- */
 function onGridClick(e) {
   const card = e.target.closest(".card");
-  if (!card) return;
+  if (!card || !e.target.closest(".check")) return;
   const id = card.dataset.id;
-  if (e.target.closest(".check")) {
-    const st = stateOf(id);
-    const nowDone = !st.done;
-    progress[id] = { done: nowDone, date: nowDone ? (st.date || today()) : st.date };
-    saveProgress();
-    card.classList.toggle("done", nowDone);
-    card.querySelector(".date-row").classList.toggle("hidden", !nowDone);
-    const dateInput = card.querySelector('input[type="date"]');
-    if (dateInput) dateInput.value = progress[id].date || "";
-    if (nowDone) {
-      const r = e.target.getBoundingClientRect();
-      burst(r.left + r.width / 2, r.top + r.height / 2);
+  const st = stateOf(id);
+  const nowDone = !st.done;
+  const before = pctOf(items());
+
+  progress[id] = { done: nowDone, date: nowDone ? (st.date || today()) : st.date };
+  saveProgress();
+  card.classList.toggle("done", nowDone);
+  card.querySelector(".date-row").classList.toggle("hidden", !nowDone);
+  const di = card.querySelector('input[type="date"]');
+  if (di) di.value = progress[id].date || "";
+
+  renderProgress();
+  updateFooter();
+
+  if (nowDone) {
+    const r = e.target.getBoundingClientRect();
+    burst(r.left + r.width / 2, r.top + r.height / 2);
+    const after = pctOf(items());
+    const hit = MILESTONES.find((m) => before < m && after >= m);
+    if (hit) {
+      celebrate(hit >= 100);
+      toast(hit >= 100 ? `🏆 100% — every ${TAB_LABELS[ui.tab].noun.slice(0, -1)} done!` : `🎉 ${hit}% of ${TAB_LABELS[ui.tab].noun}!`);
     }
-    renderProgress();
-    $("#footer-count").textContent = `${items().length} ${TAB_LABELS[ui.tab].noun} · ${countDone(items())} done`;
   }
 }
+
 function onGridChange(e) {
-  if (e.target.matches('input[type="date"]')) {
-    const id = e.target.closest(".card").dataset.id;
-    const st = stateOf(id);
-    progress[id] = { done: st.done, date: e.target.value };
-    saveProgress();
-    if (ui.sort === "recent") render();
-  }
+  if (!e.target.matches('input[type="date"]')) return;
+  const id = e.target.closest(".card").dataset.id;
+  progress[id] = { done: stateOf(id).done, date: e.target.value };
+  saveProgress();
+  if (ui.sort === "recent") render();
 }
-function today() { return new Date().toISOString().slice(0, 10); }
 
 function switchTab(tab) {
+  if (tab === ui.tab) return;
   ui.tab = tab;
   document.body.dataset.tab = tab;
-  document.querySelectorAll(".tab").forEach((b) =>
-    b.setAttribute("aria-selected", b.dataset.target === tab));
-  $("#grid").style.animation = "none"; void $("#grid").offsetWidth;
-  $("#grid").style.animation = "fade .4s ease";
+  document.querySelectorAll(".tab").forEach((b) => b.setAttribute("aria-selected", b.dataset.target === tab));
+  if (tab === "books" && !reduce) {
+    const pt = $("#page-turn");
+    pt.classList.remove("flip"); void pt.offsetWidth; pt.classList.add("flip");
+    setTimeout(() => pt.classList.remove("flip"), 850);
+  } else {
+    const g = $("#grid"); g.style.animation = "none"; void g.offsetWidth; g.style.animation = "fade .4s ease";
+  }
   render();
+}
+
+/* parallax tilt + spotlight (fine pointers only) */
+let tilted = null, raf;
+function resetTilt(c) { if (c) { c.style.setProperty("--rx", "0deg"); c.style.setProperty("--ry", "0deg"); } }
+function setupPointerFX() {
+  if (reduce || !finePointer) return;
+  document.body.classList.add("has-pointer");
+  addEventListener("pointermove", (e) => {
+    document.body.style.setProperty("--mx", e.clientX + "px");
+    document.body.style.setProperty("--my", e.clientY + "px");
+  }, { passive: true });
+
+  const grid = $("#grid");
+  grid.addEventListener("pointermove", (e) => {
+    const card = e.target.closest(".card");
+    if (card !== tilted) { resetTilt(tilted); tilted = card; }
+    if (!card) return;
+    const r = card.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      card.style.setProperty("--ry", ((px - .5) * 11).toFixed(2) + "deg");
+      card.style.setProperty("--rx", ((.5 - py) * 13).toFixed(2) + "deg");
+      card.style.setProperty("--sx", (px * 100).toFixed(1) + "%");
+      card.style.setProperty("--sy", (py * 100).toFixed(1) + "%");
+    });
+  }, { passive: true });
+  grid.addEventListener("pointerleave", () => { resetTilt(tilted); tilted = null; });
 }
 
 /* ---------- export / import ---------- */
@@ -200,7 +252,7 @@ function importProgress(file) {
   reader.onload = () => {
     try {
       const incoming = JSON.parse(reader.result);
-      if (typeof incoming !== "object") throw 0;
+      if (typeof incoming !== "object" || !incoming) throw 0;
       progress = { ...progress, ...incoming };
       saveProgress(); render();
       toast("Progress imported ✓");
@@ -215,8 +267,10 @@ function escapeAttr(s) { return escapeHTML(s).replace(/"/g, "&quot;"); }
 
 /* ---------- init ---------- */
 async function init() {
-  document.querySelectorAll(".tab").forEach((b) =>
-    b.addEventListener("click", () => switchTab(b.dataset.target)));
+  const intro = $("#intro");
+  if (reduce) intro.remove(); else setTimeout(() => intro.classList.add("gone"), 2700);
+
+  document.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () => switchTab(b.dataset.target)));
   $("#grid").addEventListener("click", onGridClick);
   $("#grid").addEventListener("change", onGridChange);
   $("#search").addEventListener("input", (e) => { ui.q = e.target.value.trim().toLowerCase(); render(); });
@@ -230,12 +284,10 @@ async function init() {
   $("#export").addEventListener("click", exportProgress);
   $("#import-file").addEventListener("change", (e) => e.target.files[0] && importProgress(e.target.files[0]));
 
-  try {
-    DATA = await (await fetch("data.json", { cache: "no-cache" })).json();
-  } catch {
-    $("#grid").innerHTML = `<p class="empty">Couldn't load data.json.</p>`;
-    return;
-  }
+  try { DATA = await (await fetch("data.json", { cache: "no-cache" })).json(); }
+  catch { $("#grid").innerHTML = `<p class="empty">Couldn't load data.json.</p>`; return; }
+
   render();
+  setupPointerFX();
 }
 document.addEventListener("DOMContentLoaded", init);
