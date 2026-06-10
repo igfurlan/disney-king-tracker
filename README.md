@@ -1,4 +1,14 @@
-# Disney & Stephen King Notion Tracker
+# Disney & Stephen King Tracker
+
+**🌐 Live web app:** https://igfurlan.github.io/disney-king-tracker/ — a dark, cinematic
+GitHub Pages site (in [`docs/`](docs/)) with Films/Books tabs, animated progress bars,
+a poster grid, a done-toggle + date picker per title, search/filter/sort, and
+localStorage persistence (with export/import). Regenerate its data with
+`python gen_site_data.py` (reads `covers_preview.json` → writes `docs/data.json`).
+
+---
+
+## Notion version
 
 Builds two Notion databases — **Stephen King — Books** and **Disney & Pixar — Films** —
 each populated with cover image, release year, a `Done` checkbox, and a `Date finished`
