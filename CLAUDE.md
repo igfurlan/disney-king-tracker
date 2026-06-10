@@ -34,34 +34,56 @@ page presents: a welcome callout, a collapsed "Source databases" toggle, then a
 Name/Year/Done/Date finished). `populate_existing.py` sets `Poster` on every new row
 automatically, so new additions appear in the galleries with no extra step.
 
-**Progress indicator:** intentionally NOT on the page. Charts are paid (blank on Free)
-and a board/grouped view looked bad. A true progress *bar* on Free needs a
-relation+rollup hack displayed via the "Show as bar" toggle, which the API cannot set
-(and breaks when items are added) — so it was removed. If the user wants a quick %,
-the free option is the `Done` column's *Percent checked* footer on a table in the
-toggle (one-time UI click). Don't re-add chart views unless the user upgrades to Plus.
+**Progress indicator:** each collection's home-page database has a **📊 Progresso**
+table view (created via `notion-create-view`). The free progress bar is the `Done`
+column's **Percent checked** footer on that view — it reads straight from the table,
+updates as rows are added, and renders as a bar. This is the only thing the user must
+toggle by hand: the API **cannot** set view footers or the "Show as bar" display toggle.
+Do NOT try to add a relation+rollup hack (fragile, breaks when rows are added) or a
+chart view (charts are paid — blank on Free) unless the user upgrades to Plus.
+
+**Language: Brazilian Portuguese.** Every Notion row's `Name` is the Brazilian release
+title. `data/titles_pt.json` maps English → BR titles (keys are exact English titles;
+`_comment`-prefixed keys are ignored). `rename_notion_pt.py` renames rows from English
+to BR (idempotent — only touches rows whose current name is a known English key). The
+GitHub Pages site (`gen_site_data.py`) merges the same map: each item gets `title`
+(pt-BR), `title_en`, `year`, `group` (translated via `GROUP_PT`), `cover`.
 
 ## Adding new books or movies later (the normal task)
 The user will say something like "Stephen King released a new book" or "add the
 new Pixar movie." Do this:
 
 1. **Append** the new entry/entries to the right JSON file in `data/`. Match the
-   existing shape exactly:
+   existing shape exactly (titles in `data/*.json` stay **English** — they're the
+   matching key everywhere):
    - Book: `{"title": "New Title", "year": 2026, "category": "Novel"}`
    - Movie: `{"title": "New Title", "year": 2026, "studio": "Pixar"}`
    Keep valid JSON (commas, no trailing comma on the last element).
-2. Ensure `.env` has `NOTION_TOKEN` and `TMDB_API_KEY` (both already present).
-3. Re-resolve covers (regenerates `covers_preview.json` with the new titles):
+2. **Add the Brazilian title** to `data/titles_pt.json` keyed by the exact English
+   title: `"New Title": "Título em Português"`. If you're unsure of the official BR
+   title, keep English and flag it for the user to confirm.
+3. Ensure `.env` has `NOTION_TOKEN` and `TMDB_API_KEY` (both already present).
+4. Re-resolve covers (regenerates `covers_preview.json` with the new titles):
    ```bash
    python populate_notion.py --dry-run
    ```
-4. Add the new rows to the LIVE databases — `populate_existing.py` is **idempotent**:
+5. Add the new rows to the LIVE databases — `populate_existing.py` is **idempotent**:
    it queries each database and adds only titles not already present.
    ```bash
    python populate_existing.py
    ```
-5. Report what was added and flag any `MISS` (no cover found) so the user can paste
-   a cover manually on that Notion page.
+6. **Rename the new rows to their BR titles** (idempotent — only renames known English
+   names, so safe even though older rows are already in Portuguese):
+   ```bash
+   python rename_notion_pt.py
+   ```
+7. **Regenerate the GitHub Pages data** so the new title shows on the live site, then
+   commit `docs/data.json`:
+   ```bash
+   python gen_site_data.py
+   ```
+8. Report what was added and flag any `MISS` (no cover found) and any title left in
+   English (no confirmed BR title) so the user can fix it.
 
 > `populate_existing.py` has the two database IDs hard-coded (see above) and skips
 > existing titles, so it's safe to re-run. Do NOT run `python populate_notion.py`
@@ -89,8 +111,19 @@ Afterwards remind the user to, per database: add a Gallery view (Card preview = 
 cover) and set the `Done` column footer to "Percent checked".
 
 ## Files
-- `data/*.json` — curated lists (source of truth).
+- `data/*.json` — curated lists (source of truth; titles in **English**).
+- `data/titles_pt.json` — English → Brazilian title map (the pt-BR layer). `_comment`
+  keys are ignored. A few uncertain BR titles are flagged in its `_comment`.
 - `populate_notion.py` — create / `--update` / `--dry-run`.
+- `populate_existing.py` — idempotently add missing rows to the LIVE DBs (IDs hard-coded).
+- `set_posters.py` — set the `Poster` file property by matching title → cover.
+- `rename_notion_pt.py` — rename rows English → BR (idempotent). Run after adding rows.
+- `gen_site_data.py` — build `docs/data.json` for the GitHub Pages site (merges
+  `titles_pt.json`).
+- `docs/` — the GitHub Pages site (`index.html`, `styles.css`, `app.js`, `data.json`),
+  pt-BR, served from `main` → `/docs`. Repo is **public** (required for Pages on Free);
+  secrets live only in the gitignored `.env`. Optional `docs/assets/*.gif` can back the
+  per-tab animated scenes via the `--scene-gif` CSS var (see README).
 - `.notion_state.json` — created after first run; holds the two database IDs. Do not
   delete; do not commit secrets.
 - `.env` — secrets (gitignored). `.env.example` is the template.
