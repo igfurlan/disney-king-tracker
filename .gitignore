@@ -1,0 +1,10 @@
+# secrets — never commit
+.env
+
+# generated / build artifacts
+.notion_state.json
+covers_preview.json
+pages_movies.json
+pages_books.json
+__pycache__/
+*.pyc
