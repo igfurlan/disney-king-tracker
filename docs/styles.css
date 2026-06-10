@@ -58,19 +58,6 @@ body[data-tab="books"]  .scene-books  { opacity: 1; }
   88%  { opacity: 0.24; }
   100% { transform: translateY(-118vh) rotate(var(--r, 220deg)); opacity: 0; }
 }
-/* Reduced-motion / no-animation fallback: keep the icons visible, statically placed,
-   so the themed scene still shows even when the float animation is suppressed. */
-@media (prefers-reduced-motion: reduce) {
-  .scene-layer span { animation: none; opacity: 0.2; bottom: auto; }
-  .scene-layer span:nth-child(1) { top: 14%; }
-  .scene-layer span:nth-child(2) { top: 64%; }
-  .scene-layer span:nth-child(3) { top: 30%; }
-  .scene-layer span:nth-child(4) { top: 78%; }
-  .scene-layer span:nth-child(5) { top: 20%; }
-  .scene-layer span:nth-child(6) { top: 50%; }
-  .scene-layer span:nth-child(7) { top: 8%;  }
-  .scene-layer span:nth-child(8) { top: 70%; }
-}
 
 .wrap { width: min(1180px, 92vw); margin: 0 auto; }
 
@@ -361,4 +348,12 @@ body[data-tab="books"] .progress-card {
 }
 @keyframes fall { to { transform: translate(var(--x, 0), 106vh) rotate(var(--rot, 360deg)); opacity: 0.85; } }
 
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+@media (prefers-reduced-motion: reduce) {
+  /* Suppress the heavier / jarring motion the setting is meant to calm... */
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  /* ...but keep the gentle ambient drift alive (this is a personal, motion-light site). */
+  .scene-layer span { animation: floatUp var(--dur, 20s) linear var(--d, 0s) infinite !important; }
+  .logo-emoji { animation: float 4s ease-in-out infinite !important; }
+  .logo-emoji:last-child { animation-delay: -2s !important; }
+  .aurora { animation: drift 22s ease-in-out infinite alternate !important; }
+}
